@@ -7,7 +7,7 @@ import Bento from "@/components/bento";
 export default function Obras() {
 
     // iterate over 10
-    const images = Array.from({ length: 15 }, (_, i) => `/static/img/art/f${i + 1}.JPG`);
+    const images = Array.from({ length: 15 }, (_, i) => `/static/img/art/f${i + 1}.webp`);
 
     return (
         <div >
