@@ -71,9 +71,26 @@ const cuadros =
             descripcion: "Una descripción de la obra 8.",
             material: "Collage sobre tabla",
             imgPath: "static/img/art/cuadro-8.webp"
+        },
+        {
+            titulo: "Negro, amarillo, rojo.",
+            coleccion: "",
+            año: 1994,
+            dimensiones:"162x100 cm",
+            descripcion: "Una descripción de la obra 9.",
+            material: "Tecnica mixta sobre tela",
+            imgPath: "static/img/art/cuadro-9.webp"
+        },
+        {
+            titulo: "Noticias 3",
+            coleccion: "noticias",
+            año: 1994,
+            dimensiones: "39,5z29.5 cm",
+            descripcion: "Una descripción de la obra 10.",
+            material: "Collage sobre tabla",
+            imgPath: "static/img/art/cuadro-10.webp"
         }
-        // Agrega más objetos con datos adicionales según sea necesario
     ]
 
 
-    module.exports = { cuadros }; // Exporta la variable obras para que pueda ser importada en otros archivos
+module.exports = { cuadros }; // Exporta la variable obras para que pueda ser importada en otros archivos

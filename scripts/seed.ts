@@ -8,33 +8,32 @@ const bcrypt = require('bcrypt');
 
 async function seedCatalogo(client) {
     try {
-        // check if the table exists
-        const checkTable = await client.query(`
-            SELECT EXISTS (
-                SELECT 1
-                FROM information_schema.tables
-                WHERE table_name = 'catalogo'
-            );
+        // check if the table exists and remove it if it does
+
+        const existingTable = await client.query(`
+            SELECT to_regclass('catalogo');
         `);
 
-        if (checkTable.rows[0].exists) {
-            console.log('Table "catalogo" already exists, skipping creation');
-            return;
+        if (existingTable.rows[0].to_regclass) {
+            console.log('Dropping "catalogo" table');
+            await client.query(`
+                DROP TABLE catalogo;
+            `);
         }
-        
 
         const createTable = await client.sql`
-    CREATE TABLE catalogo (
-        id SERIAL PRIMARY KEY,
-        titulo VARCHAR(255) NOT NULL,
-        coleccion VARCHAR(100),
-        año INTEGER,
-        dimensiones VARCHAR(100),
-        descripcion TEXT,
-        material VARCHAR(100),
-        imgPath VARCHAR(255)
-    );
-    `;
+            CREATE TABLE catalogo (
+                id SERIAL PRIMARY KEY,
+                titulo VARCHAR(255) NOT NULL,
+                coleccion VARCHAR(100),
+                año INTEGER,
+                dimensiones VARCHAR(100),
+                descripcion TEXT,
+                material VARCHAR(100),
+                imgPath VARCHAR(255)
+            );
+            `;
+
 
         console.log(`Created "catalogo" table`);
 

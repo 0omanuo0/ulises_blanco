@@ -5,6 +5,7 @@ import { fetchCuadro, Cuadro } from '@/app/lib/data';
 
 export default async function Obra({ params }: { params: { id: string } }) {
     const cuadro = (await fetchCuadro(parseInt(params.id))).rows;
+    console.log(cuadro);
     return (
         <div>
             <h1>Obra {params.id}</h1>
