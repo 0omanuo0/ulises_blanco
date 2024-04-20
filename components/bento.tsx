@@ -39,7 +39,7 @@ export default function Bento({ images, className }: { images: string[], classNa
                         alt={`Image ${i+1}`}
                         className="object-cover w-full h-[20rem] rounded-xl z-[500]"
                     />
-                    <div className="absolute inset-0 bg-black opacity-60 hover:opacity-0 transition-opacity duration-300 rounded-xl"></div>
+                    <div className="absolute inset-0 bg-black opacity-50 hover:opacity-0 transition-opacity duration-300 rounded-xl"></div>
                 </Link>
             </li>
         )

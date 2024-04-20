@@ -14,7 +14,7 @@ export default function Obras() {
             <PageHeader />
             <main className=" flex min-h-screen flex-col" >
                 <SearchFilters></SearchFilters>
-                <Bento className="mt-14" images={images}></Bento>
+                <Bento className="mt-14 px-10" images={images}></Bento>
             </main>
             <div
                 className="fixed h-40 full w-full top-0 left-0 z-10 bg-gray-200"
