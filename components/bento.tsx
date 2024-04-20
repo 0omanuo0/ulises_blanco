@@ -6,6 +6,7 @@ import Link from "next/link";
 
 export default function Bento({ images, className }: { images: string[], className?: string }) {
 
+    
 
     let acumulator = 1;
     let before = false;
