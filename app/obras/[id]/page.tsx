@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { fetchCuadro, Cuadro } from '@/app/lib/data';
 import { redirect } from "next/navigation";
+import NavBarImages from "@/components/navBarImages";
 
 
 
@@ -8,10 +9,7 @@ export default async function Obra({ params }: { params: { id: string } }) {
     const cuadro = (await fetchCuadro(parseInt(params.id))).rows;
     return (
         <div>
-            {/* <div className="fixed items-center text-center justify-between h-full w-full">
-                <button className="bg-black text-white p-4">Back</button>
-                <button className="bg-black text-white p-4">Next</button>
-            </div> */}
+            <NavBarImages id={parseInt(params.id)} />
             <main className="px-32 items-center h-screen py-10">
 
                 {
@@ -32,7 +30,10 @@ export default async function Obra({ params }: { params: { id: string } }) {
                                     {cuadro[0].material}
                                 </li>
                             </ul>
-                        </div> : <div><h1>{params.id}</h1><p>Not in db</p></div>
+                        </div>
+                        : <div className="absolute bg-white/50 px-8 py-4 text-neutral-800 backdrop-blur-lg min-w-[30%] space-y-1">
+                            <h1 className="text-black text-2xl tracking-widest">Title: {params.id}</h1><p>Not in db</p>
+                        </div>
                 }
                 <img
                     src={`/static/img/art/cuadro-${params.id}.webp`}
