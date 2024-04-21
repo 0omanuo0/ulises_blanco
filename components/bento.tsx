@@ -24,7 +24,7 @@ export default function Bento({ images, className }: { images: string[], classNa
                 key={i}
 
             >
-                <Link href={`/obras/${i + 1}`} prefetch>
+                <Link href={`/obras/${i + 1}`}>
                     <Image
                         width={1000} height={500}
                         src={image}
