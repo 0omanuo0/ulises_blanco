@@ -6,26 +6,17 @@ import Link from "next/link";
 
 export default function Bento({ images, className }: { images: string[], className?: string }) {
 
-    
+
 
     let acumulator = 1;
     let before = false;
     const list_images = images.map((image, i) => {
         const randValue = Math.floor(Math.random() * 3) === 0;
-        let isWide = false;
+        let isWide = (acumulator < 4 || acumulator % 4 !== 0) && randValue && !before;
 
-        if (acumulator < 4 && randValue)
-            isWide = true && !before;
-        else if (acumulator % 4 !== 0 && randValue)
-            isWide = true && !before;
+        acumulator += isWide ? 2 : 1;
+        before = isWide;
 
-        if (isWide) {
-            acumulator += 2;
-            before = true;
-        } else {
-            acumulator += 1;
-            before = false;
-        }
 
         return (
             <li
@@ -33,10 +24,12 @@ export default function Bento({ images, className }: { images: string[], classNa
                 key={i}
 
             >
-                <Link href={`/obras/${i+1}`}>
-                    <img
+                <Link href={`/obras/${i + 1}`} prefetch>
+                    <Image
+                        width={1000} height={500}
                         src={image}
-                        alt={`Image ${i+1}`}
+                        loading={i < 10 ? "eager" : "lazy"} priority={i < 10 ? true : false}
+                        alt={`Image ${i + 1}`}
                         className="object-cover w-full h-[20rem] rounded-xl z-[500]"
                     />
                     <div className="absolute h-full inset-0 bg-black opacity-50 hover:opacity-0 transition-opacity duration-300 rounded-xl"></div>
