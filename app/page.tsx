@@ -7,6 +7,7 @@ export default function Home() {
         <main className=" bg-gray-200 flex min-h-screen flex-col items-center justify-between">
             <section>
                 <Image
+                    loading="eager"
                     src={"/static/img/main2.webp"}
                     alt={" imagen principal"}
                     width={5055}
