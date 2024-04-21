@@ -29,7 +29,7 @@ export default function Bento({ images, className }: { images: string[], classNa
 
         return (
             <li
-                className={`hover:scale-110 transition-all duration-500 ease-in-out relative list-none row-span-1 ${isWide ? "col-span-2" : ""}`}
+                className={`hover:scale-110 transition-all duration-500 ease-in-out relative list-none  ${isWide ? "col-span-2" : ""}`}
                 key={i}
 
             >
@@ -39,7 +39,7 @@ export default function Bento({ images, className }: { images: string[], classNa
                         alt={`Image ${i+1}`}
                         className="object-cover w-full h-[20rem] rounded-xl z-[500]"
                     />
-                    <div className="absolute inset-0 bg-black opacity-50 hover:opacity-0 transition-opacity duration-300 rounded-xl"></div>
+                    <div className="absolute h-full inset-0 bg-black opacity-50 hover:opacity-0 transition-opacity duration-300 rounded-xl"></div>
                 </Link>
             </li>
         )
@@ -48,7 +48,7 @@ export default function Bento({ images, className }: { images: string[], classNa
     return (
         <div className={className}>
             {/* <div className={`${hover ? 'block' : 'hidden'} fixed w-full h-full z-[100] bg-black/60 inset-0 ${hover ? 'pointer-events-none' : ''}`}></div> */}
-            <ul className="grid grid-cols-4 gap-4 auto-cols-[30rem]">
+            <ul className="space-y-4 mx-auto lg:space-y-0 lg:grid lg:grid-cols-4 text-center w-full md:w-1/2 lg:w-full lg:gap-4 auto-cols-[30rem]">
                 {list_images}
             </ul>
         </div>

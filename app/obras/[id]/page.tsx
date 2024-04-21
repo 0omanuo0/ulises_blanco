@@ -11,14 +11,13 @@ export default async function Obra({ params }: { params: { id: string } }) {
     return (
         <div>
             <NavBarImages id={parseInt(params.id)} />
-            <main className="px-32 items-center h-screen py-10">
+            <main className="md:px-32 items-center h-screen md:py-10">
 
                 {
                     cuadro.length > 0 ?
-                        <div className="absolute bg-white/50 px-8 py-4 text-neutral-800 backdrop-blur-lg min-w-[30%] space-y-1">
+                        <div className="absolute w-full md:w-fit mt-10 md:mt-0 bg-white/50 px-4 md:px-8 py-4 text-neutral-800 backdrop-blur-lg min-w-[30%] space-y-1">
                             <h1 className="text-black text-2xl tracking-widest">{cuadro[0].titulo}</h1>
-                            <ul className="flex space-x-3">
-
+                            <ul className=" text-sm md:text-lg flex space-x-1 md:space-x-3">
                                 <li>
                                     {cuadro[0].año}
                                 </li>

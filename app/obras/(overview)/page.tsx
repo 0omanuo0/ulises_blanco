@@ -14,7 +14,7 @@ export default function Obras() {
             <PageHeader />
             <main className=" flex min-h-screen flex-col" >
                 <SearchFilters></SearchFilters>
-                <Bento className="mt-14 px-10" images={images}></Bento>
+                <Bento className="mt-4 md:mt-14 px-10" images={images}></Bento>
             </main>
             <div
                 className="fixed h-40 full w-full top-0 left-0 z-10 bg-gray-200"
@@ -33,7 +33,7 @@ export default function Obras() {
 
 function SearchFilters() {
     return (
-        <nav className="fixed w-full text-justify z-[60]">
+        <nav className="fixed hidden w-full text-justify z-[60]">
             <ul className="flex justify-center space-x-10">
                 <FilterButton name="COLECCION"></FilterButton>
                 <FilterButton name="AÑO"></FilterButton>
