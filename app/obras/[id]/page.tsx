@@ -2,6 +2,7 @@ import Image from "next/image";
 import { fetchCuadro, Cuadro } from '@/app/lib/data';
 import { redirect } from "next/navigation";
 import NavBarImages from "@/components/navBarImages";
+import Link from "next/link";
 
 
 
@@ -40,6 +41,15 @@ export default async function Obra({ params }: { params: { id: string } }) {
                     alt={" imagen principal"} width={5055} height={3416}
                     className="w-screen object-cover aspect-video h-full"
                 ></img>
+                <div className="  absolute bottom-14 left-0 w-full text-center justify-center">
+                <Link  href={"/obras"}>
+                    <button
+                        className="text-neutral-800 bg-white rounded-xl shadow-2xl hover:bg-neutral-300 transition-colors duration-300 ease-in-out mx-10 px-6 py-4"
+                    >
+                        Volver a obras
+                    </button>
+                </Link>
+                </div>
             </main>
         </div>
     )
