@@ -7,7 +7,7 @@ import Bento from "@/components/bento";
 export default function Obras() {
 
     // iterate over 10
-    const images = Array.from({ length: 54 }, (_, i) => `/static/img/art/cuadro-${i + 1}.webp`);
+    const images = Array.from({ length: 54 }, (_, i) => `https://storage.manu365.dev/art/cuadro-${i + 1}.webp`);
 
     return (
         <div >

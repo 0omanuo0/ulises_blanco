@@ -25,10 +25,11 @@ export default function Bento({ images, className }: { images: string[], classNa
 
             >
                 <Link href={`/obras/${i + 1}`}>
-                    <Image
+                    <img
                         width={1000} height={500}
                         src={image}
-                        loading={i < 10 ? "eager" : "lazy"} priority={i < 10 ? true : false}
+                        loading={i < 10 ? "eager" : "lazy"} 
+                        // priority={i < 10 ? true : false}
                         alt={`Image ${i + 1}`}
                         className="object-cover w-full h-[20rem] rounded-xl z-[500]"
                     />

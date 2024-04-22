@@ -36,7 +36,7 @@ export default async function Obra({ params }: { params: { id: string } }) {
                         </div>
                 }
                 <img
-                    src={`/static/img/art/cuadro-${params.id}.webp`}
+                    src={`https://storage.manu365.dev/art/cuadro-${params.id}.webp`}
                     alt={" imagen principal"} width={5055} height={3416}
                     className="w-screen object-cover aspect-video h-full"
                 ></img>
