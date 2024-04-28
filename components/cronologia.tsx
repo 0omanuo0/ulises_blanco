@@ -3,6 +3,7 @@
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import ScrollUpButton from "@/components/scrollUpButton";
 
 
 
@@ -32,11 +33,7 @@ export default function Cronology() {
 
     return (
         <Card className="bg-transparent shadow-none justify-center md:mx-32">
-            <button id="scroll-up" className="fixed bottom-8 right-8 z-50 bg-white shadow-xl text-black p-2 rounded-full"
-                onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-            >
-                <ChevronUpIcon className="h-8" />
-            </button>
+            <ScrollUpButton target="about" />
             <CardHeader
                 className="text-4xl font-light text-center justify-center tracking-[0.2em] first:animate-slide-in-top"
             >

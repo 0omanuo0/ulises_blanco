@@ -8,6 +8,8 @@ import Bento from "@/components/bento";
 import { fetchCuadros } from "@/app/lib/data";
 import SearchFilters from "@/components/searchBar";
 import { useSearchParams } from "next/navigation";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import ScrollUpButton from "@/components/scrollUpButton";
 
 
 export default async function Obras() {
@@ -38,12 +40,13 @@ export default async function Obras() {
     
 
     return (
-        <div >
+        <div id="main-page" >
             <PageHeader />
-            <main className=" flex min-h-screen flex-col" >
+            <main className=" flex min-h-screen flex-col"  >
                 <SearchFilters years={años}></SearchFilters>
                 <Bento className="mt-4 md:mt-14 px-10 2xl:px-28" images={cuadros}></Bento>
             </main>
+            <ScrollUpButton target="main-page" />
             <div
                 className="fixed h-40 full w-full top-0 left-0 z-10 bg-gray-200"
                 // add linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, rgba(0, 0, 0, 0) 100%) and also a blur in the gradient
