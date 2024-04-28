@@ -2,19 +2,35 @@ import Link from "next/link";
 import PageHeader from "@/components/header";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import Bento from "@/components/bento";
+import { fetchCuadros } from "@/app/lib/data";
 
 
-export default function Obras() {
+export default async function Obras() {
 
-    // iterate over 10
-    const images = Array.from({ length: 54 }, (_, i) => `https://storage.manu365.dev/art/cuadro-${i + 1}.webp`);
+    const cuadros = (await fetchCuadros()).rows;
+
+    // iterate over from cuadros.length to 54 and append Cuadro objects to the array everything undefined but imgpath `https://storage.manu365.dev/art/cuadro-${i + 1}.webp
+    const cuadrosLength = cuadros.length;
+    for (let i = cuadrosLength; i < 54; i++) {
+        cuadros.push({
+            id: i + 1,
+            titulo: "",
+            coleccion: "",
+            año: NaN,
+            dimensiones: "100x100",
+            descripcion: "",
+            material: "",
+            imgpath: `https://storage.manu365.dev/art/cuadro-${i + 1}.webp`
+        })
+    }
+    
 
     return (
         <div >
             <PageHeader />
             <main className=" flex min-h-screen flex-col" >
                 <SearchFilters></SearchFilters>
-                <Bento className="mt-4 md:mt-14 px-10" images={images}></Bento>
+                <Bento className="mt-4 md:mt-14 px-10" images={cuadros}></Bento>
             </main>
             <div
                 className="fixed h-40 full w-full top-0 left-0 z-10 bg-gray-200"

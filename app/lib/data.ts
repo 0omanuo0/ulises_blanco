@@ -8,7 +8,7 @@ export type Cuadro = {
     dimensiones: string;
     descripcion: string;
     material: string;
-    imgPath: string;
+    imgpath: string;
 }
 
 export async function fetchCuadro(id:number) {
@@ -17,6 +17,15 @@ export async function fetchCuadro(id:number) {
     `;
 
     return cuadro;
+}
+
+export async function fetchCuadros() {
+    const cuadros = await sql<Cuadro>`
+        SELECT * FROM catalogo;
+    `;
+    
+
+    return cuadros;
 }
 
 export async function getEvents() {
