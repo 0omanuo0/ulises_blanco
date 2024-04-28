@@ -6,9 +6,10 @@ import Cronology from "@/components/cronologia";
 
 export default function SectionAbout() {
 
+
     return (
-        <section className="bg-gray-200 items-center text-center pt-10 w-full min-h-screen space-y-6 ">
-            <Tabs key={"a"} size={"lg"} aria-label="Tabs sizes">
+        <section id="about" className="bg-gray-200 items-center text-center pt-10 w-full min-h-screen space-y-6 ">
+            <Tabs key={"a"} size={"lg"} id="tabs-data" aria-label="Tabs sizes">
                 <Tab key="Biografia" title="Biografia">
                     <About />
                 </Tab>
