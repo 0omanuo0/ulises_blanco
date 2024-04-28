@@ -7,7 +7,7 @@ import Cronology from "@/components/cronologia";
 export default function SectionAbout() {
 
     return (
-        <section className="bg-gray-200 items-center text-center pt-10 w-full min-h-screen space-y-6 " id="about">
+        <section className="bg-gray-200 items-center text-center pt-10 w-full min-h-screen space-y-6 ">
             <Tabs key={"a"} size={"lg"} aria-label="Tabs sizes">
                 <Tab key="Biografia" title="Biografia">
                     <About />
@@ -34,7 +34,7 @@ function About() {
 
     return (
 
-        <Card className="bg-transparent shadow-none justify-center mx-32">
+        <Card className="bg-transparent shadow-none justify-center md:mx-32">
             <CardHeader
                 className="text-4xl font-light text-center justify-center tracking-[0.2em]"
             >

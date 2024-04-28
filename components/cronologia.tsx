@@ -2,6 +2,7 @@
 
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { useEffect, useState } from "react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 
 
@@ -15,17 +16,35 @@ export default function Cronology() {
             setCronology(data);
         }
         cronology();
+
+        // check if cronology is in screen, if not, hide scroll-up button
+        const scrollUp = document.getElementById("scroll-up");
+        const handleScroll = () => {
+            if (scrollUp && window.scrollY > 100) {
+                scrollUp.style.display = "block";
+            } else {
+                scrollUp?.style.setProperty("display", "none", "important");
+            }
+        }
+        window.addEventListener("scroll", handleScroll);
+
     }, [])
 
     return (
-        <Card className="bg-transparent shadow-none justify-center mx-32">
-            <CardHeader
-                className="text-4xl font-light text-center justify-center tracking-[0.2em]"
+        <Card className="bg-transparent shadow-none justify-center md:mx-32">
+            <button id="scroll-up" className="fixed bottom-8 right-8 z-50 bg-white shadow-xl text-black p-2 rounded-full"
+                onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
             >
+                <ChevronUpIcon className="h-8" />
+            </button>
+            <CardHeader
+                className="text-4xl font-light text-center justify-center tracking-[0.2em] first:animate-slide-in-top"
+            >
+
                 Cronología
             </CardHeader>
-            <CardBody>
-                <ol className="space-y-6 text-center mx-auto pt-8">
+            <CardBody className=" last:animate-slide-in-top" >
+                <ol id="cronology" className="space-y-6 text-center mx-auto pt-8">
                     {
                         Object.entries(cronology).map(
                             ([year, events]) => (
