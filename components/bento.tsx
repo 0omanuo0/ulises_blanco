@@ -1,18 +1,27 @@
+import { type Cuadro } from "@/app/lib/data";
 import { randomInt } from "crypto";
 import Image from "next/image"
 import Link from "next/link";
 
 
 
-export default function Bento({ images, className }: { images: string[], className?: string }) {
+export default function Bento({ images, className }: { images: Cuadro[], className?: string }) {
 
+    // ToDo: change the bento layout to be with the aspect ratio of the images
 
 
     let acumulator = 1;
     let before = false;
     const list_images = images.map((image, i) => {
-        const randValue = Math.floor(Math.random() * 3) === 0;
-        let isWide = (acumulator < 4 || acumulator % 4 !== 0) && randValue && !before;
+        // state probaby wide
+        let candidateWide = Math.floor(Math.random() * 3) === 0;
+        let isWide = (acumulator < 4 || acumulator % 4 !== 0) && candidateWide && !before;
+        if (!Number.isNaN(image.año)) {
+            const ratio = parseFloat(image.dimensiones.split("x")[0]) / parseFloat(image.dimensiones.split("x")[1]);
+            candidateWide = ratio > 1.25 ? true : false;
+            isWide = (acumulator < 4 || acumulator % 4 !== 0) && candidateWide;
+            console.log(image.titulo, ratio, isWide);
+        }
 
         acumulator += isWide ? 2 : 1;
         before = isWide;
@@ -27,8 +36,8 @@ export default function Bento({ images, className }: { images: string[], classNa
                 <Link href={`/obras/${i + 1}`}>
                     <img
                         width={1000} height={500}
-                        src={image}
-                        loading={i < 10 ? "eager" : "lazy"} 
+                        src={image.imgpath}
+                        loading={i < 10 ? "eager" : "lazy"}
                         // priority={i < 10 ? true : false}
                         alt={`Image ${i + 1}`}
                         className="object-cover w-full h-[20rem] rounded-xl z-[500]"
