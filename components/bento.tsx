@@ -86,8 +86,8 @@ function RenderImages(images: Cuadro[]) {
 
             >
                 <Link href={`/obras/${i + 1}`}>
-                    <img
-                        width={1000} height={500}
+                    <Image
+                        width={500} height={250}
                         src={image.imgpath}
                         loading={i < 10 ? "eager" : "lazy"}
                         // priority={i < 10 ? true : false}
