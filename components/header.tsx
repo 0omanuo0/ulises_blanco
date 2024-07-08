@@ -6,33 +6,34 @@ import { useState } from "react";
 import NavDropdown from "@/components/navDropdown";
 
 
+enum pages{
+    INICIO = "inicio",
+    OBRAS = "obras",
+    BIOGRAFIA = "biografia"
+}
 
 
-export default function PageHeader() {
+export default function PageHeader( {actualPage}:{actualPage?: string}) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <>
-            <header className=" fixed p-4 md:p-10 top-0 left-0 w-full z-50"
-
-            >
-                <div className="bg-white w-full h-24 flex items-center justify-between px-6 md:px-20 rounded-xl shadow-2xl">
-                    <h1 className="text-black border-b-2 pb-1 text-lg md:text-xl border-black tracking-widest">ULISES BLANCO</h1>
-                    <nav className=" hidden space-x-10 lg:flex items-center">
-                        <button className="border-none w-fit border-2 h-fit font-light text-lg tracking-widest hover:animate-pulse text-black ">
+            <header className="header-nav">
+                <div id="header-container">
+                    <h1 className="header-title">ULISES BLANCO</h1>
+                    <nav>
+                        <button className=" header-nav-link">
                             <Link href={"/"}>INICIO</Link>
                         </button>
                         <div className="border-r-2 border-black h-8"></div>
-                        <button className="border-none w-fit border-2 h-fit font-light text-lg tracking-widest hover:animate-pulse text-black ">
-                            <Link href={"/"}>OBRAS</Link>
+                        <button className={`header-nav-link ${actualPage === pages.OBRAS ? " font-normal" : ""}`}>
+                            <Link href={"/obras"}>OBRAS</Link>
                         </button>
-                        <button className="border-none w-fit border-2 h-fit font-light text-lg tracking-widest hover:animate-pulse text-black ">
-                            <Link href={"/"}>BIOGRAFIA</Link>
+                        <button className={`header-nav-link ${actualPage === pages.BIOGRAFIA ? " font-normal" : ""}`}>
+                            <Link href={"/biografia"}>BIOGRAFIA</Link>
                         </button>
                     </nav>
-                    <div className="lg:hidden items-center h-fit">
-                        <button className="border-none w-fit border-2 animate-pulse text-black "
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        >
+                    <div id="navbar-dropdown" >
+                        <button  onClick={() => setIsMenuOpen(!isMenuOpen)}>
                             <Bars3Icon className="h-8 w-8" />
                         </button>
                     </div>
@@ -40,8 +41,19 @@ export default function PageHeader() {
                 {
                     isMenuOpen ? <NavDropdown isOpen={isMenuOpen} /> : <></>
                 }
-                
+
+
             </header>
+            <div
+                className="fixed h-36 full w-full top-0 left-0 z-10 bg-gray-200"
+                // add linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, rgba(0, 0, 0, 0) 100%) and also a blur in the gradient
+                style={
+                    {
+                        background: "linear-gradient(180deg, rgba(229, 231, 235, 1) 20%, rgba(0, 0, 0, 0) 100%)",
+                        backdropFilter: "blur(40px)",
+                        mask: "linear-gradient(180deg, rgba(255, 255, 255, 1) 70%, rgba(0, 0, 0, 0) 100%)"
+                    }}
+            ></div>
             <div className="h-36 w-2 "></div>
         </>
     )

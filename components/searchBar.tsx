@@ -43,13 +43,13 @@ function YearDropdown({ years, isOpen }: { years: number[]; isOpen: boolean }) {
 
 
     return (
-        <div className={`absolute top-12 text-center left-0 w-full bg-white shadow-xl rounded-xl p-4 pl-0 ${isOpen ? "block" : "hidden"} `}
+        <div className={` seach-filter-dropdown ${isOpen ? "block" : "hidden"} `}
             id="filter-year"
         >
             <ul className="space-y-2 ">
                 {years.map(year => (
                     <li key={year} className="text-center justify-center ">
-                        
+
                         <button className="hover:text-gray-500 items-center mx-auto flex" onClick={
                             () => {
                                 // replace url with ?year=${year} (this trigers the popstate) if is already in url remove it
@@ -80,9 +80,9 @@ export default function SearchFilters({ years }: { years: number[] }) {
         <nav className="fixed hidden md:block w-full text-justify z-[60]">
             <ul className="flex justify-center space-x-10">
                 <FilterButton name="COLECCION"></FilterButton>
-                <FilterButton setIsOpen={() => {
-                    setIsOpen(!isOpen)
-                }} name="AÑO" ><YearDropdown years={years} isOpen={isOpen} /></FilterButton>
+                <FilterButton setIsOpen={() => { setIsOpen(!isOpen) }} name="AÑO" >
+                    <YearDropdown years={years} isOpen={isOpen} />
+                </FilterButton>
                 <FilterButton name="EXPOSICION"></FilterButton>
             </ul>
         </nav>
@@ -94,11 +94,13 @@ function FilterButton({ name, children, setIsOpen }: { name: string, children?: 
     return (
         <li className="relative">
             <button
-                className="text-black hover:text-gray-500 font-normal bg-white px-6 py-2 rounded-lg shadow-xl text-xs tracking-[0.2em] items-center"
+                className="search-filter-btn"
                 onClick={setIsOpen}
             >
                 {name}
-                <ChevronDownIcon className="h-8 inline-block -my-2 -mr-1 ml-2"></ChevronDownIcon>
+                <ChevronDownIcon
+                    className="h-8 inline-block -my-2 -mr-1 ml-2"
+                ></ChevronDownIcon>
             </button>
             {children}
         </li>

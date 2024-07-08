@@ -8,7 +8,7 @@ import ScrollUpButton from "@/components/scrollUpButton";
 
 
 export default function Cronology() {
-    const [cronology, setCronology] = useState<{ [key in string]: string[] }>({});
+    const [cronology, setCronology] = useState<{ [key in string]: string[] }>({"Cargando":[]});
 
     useEffect(() => {
         const cronology = async () => {
@@ -37,17 +37,16 @@ export default function Cronology() {
             <CardHeader
                 className="text-4xl font-light text-center justify-center tracking-[0.2em] first:animate-slide-in-top"
             >
-
                 Cronología
             </CardHeader>
             <CardBody className=" last:animate-slide-in-top" >
-                <ol id="cronology" className="space-y-6 text-center mx-auto pt-8">
+                <ol id="cronology" className="cronology">
                     {
                         Object.entries(cronology).map(
                             ([year, events]) => (
-                                <li key={year} className="space-y-2 text-left w-fit">
-                                    <h2 className="text-2xl font-light border-b-2 border-gray-300 w-fit px-2">{year}</h2>
-                                    <ul className="space-y-2 ml-4">
+                                <li key={year}>
+                                    <h2>{year}</h2>
+                                    <ul >
                                         {
                                             events.map((event, i) => (
                                                 <li key={i}>- {event}</li>

@@ -3,7 +3,7 @@ import SectionAbout from "@/components/sectionAbout";
 
 export default function Home() {
     return (
-        <main className=" bg-gray-200 flex min-h-screen flex-col items-center justify-between">
+        <main className=" bg-gray-200 items-center justify-between">
             <SectionMain></SectionMain>
             <SectionAbout></SectionAbout>
         </main>

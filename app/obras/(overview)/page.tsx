@@ -41,22 +41,13 @@ export default async function Obras() {
 
     return (
         <div id="main-page" >
-            <PageHeader />
-            <main className=" flex min-h-screen flex-col"  >
+            <PageHeader actualPage="obras"/>
+            <main >
+                {/* añadir destacados */}
                 <SearchFilters years={años}></SearchFilters>
                 <Bento className="mt-4 md:mt-14 px-10 2xl:px-28" images={cuadros}></Bento>
             </main>
             <ScrollUpButton target="main-page" />
-            <div
-                className="fixed h-40 full w-full top-0 left-0 z-10 bg-gray-200"
-                // add linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, rgba(0, 0, 0, 0) 100%) and also a blur in the gradient
-                style={
-                    {
-                        background: "linear-gradient(180deg, rgba(229, 231, 235, 1) 20%, rgba(0, 0, 0, 0) 100%)",
-                        backdropFilter: "blur(40px)",
-                        mask: "linear-gradient(180deg, rgba(255, 255, 255, 1) 70%, rgba(0, 0, 0, 0) 100%)"
-                    }}
-            ></div>
         </div>
     )
 
