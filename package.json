@@ -15,11 +15,11 @@
     "@midudev/tailwind-animations": "^0.0.7",
     "@nextui-org/react": "^2.3.5",
     "@nextui-org/tabs": "^2.0.29",
-    "@vercel/postgres": "^0.8.0",
+    "@vercel/postgres": "^0.9.0",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.1.7",
-    "next": "14.2.1",
+    "next": "^14.2.4",
     "react": "^18",
     "react-dom": "^18"
   },
