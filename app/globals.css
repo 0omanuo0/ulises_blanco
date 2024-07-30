@@ -22,7 +22,10 @@ body {
     }
 
     footer{
-        @apply bg-gray-200 text-center border-t-2 border-black px-8 md:px-0 md:mx-24 space-y-2 py-4 mt-8 justify-between md:flex;
+        @apply bg-gray-200 text-center border-t-2 border-black px-8 md:px-0 md:mx-24 space-y-2 md:space-y-0 py-4 mt-8 justify-between md:flex;
+    }
+    footer > *{
+        @apply block md:inline;
     }
 
 
@@ -108,14 +111,14 @@ body {
 
     /* terminos legales */
     .terminos-main{
-        @apply min-h-screen mx-20 pt-20 flex;
+        @apply min-h-screen px-2 md:mx-20 pt-20 flex;
     }
     .terminos-main h1{
         @apply text-4xl font-light text-center;
     }
 
     .terminos-legales{
-        @apply w-[800px] mx-auto;
+        @apply md:w-[500px] lg:w-[800px] mx-auto;
     }    
     .terminos-legales p{
         @apply text-pretty;
@@ -140,7 +143,7 @@ body {
     }
     
     .contact-info{
-        @apply space-y-4 mb-12 flex flex-col mt-12 mx-20;
+        @apply space-y-4 mb-12 flex flex-col mt-12 mx-2 md:mx-20;
     }
     .contact-info h2{
         @apply text-center mx-auto text-2xl font-light border-b-2 border-gray-300 w-fit px-2;
@@ -149,7 +152,7 @@ body {
         @apply underline;
     }
     .contact-info #mails{
-        @apply space-y-1 ml-24;
+        @apply space-y-1 ml-8 md:ml-16 lg:ml-24;
     }
      .contact-info #mails > p{
         @apply list-item;
