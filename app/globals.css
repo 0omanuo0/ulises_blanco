@@ -98,7 +98,65 @@ body {
         @apply absolute top-12 text-center left-0 w-full bg-white shadow-xl rounded-xl p-4 pl-0;
     }
 
+    .header-nav::after{
+        @apply absolute h-36 w-full top-0 left-0 -z-10 bg-gray-200;
+        background: linear-gradient(180deg, rgba(229, 231, 235, 1) 20%, rgba(0, 0, 0, 0) 100%);
+        backdrop-filter: blur(40px);
+        mask: linear-gradient(180deg, rgba(255, 255, 255, 1) 70%, rgba(0, 0, 0, 0) 100%);
+        content: '';
+    }
 
+    /* terminos legales */
+    .terminos-main{
+        @apply min-h-screen mx-20 pt-20 flex;
+    }
+    .terminos-main h1{
+        @apply text-4xl font-light text-center;
+    }
+
+    .terminos-legales{
+        @apply w-[800px] mx-auto;
+    }    
+    .terminos-legales p{
+        @apply text-pretty;
+        @apply ml-8;
+    }
+    .terminos-legales h2{
+        @apply text-2xl font-light border-b-2 border-gray-300 w-fit px-2 mt-8 mb-4;
+    }
+    .terminos-legales ul{
+        @apply space-y-2 ml-8 mt-4;
+    }
+    .terminos-legales h3{
+        @apply text-xl  w-fit px-2 mt-4;
+    }
+    
+    .contact-info{
+        @apply space-y-4 mb-12 flex flex-col mt-12 mx-20;
+    }
+    .contact-info h2{
+        @apply text-center mx-auto text-2xl font-light border-b-2 border-gray-300 w-fit px-2;
+    }
+    .contact-info a{
+        @apply underline;
+    }
+    .contact-info #mails{
+        @apply space-y-1 ml-24;
+    }
+     .contact-info #mails > p{
+        @apply list-item;
+    } 
+
+    .h-bar{
+        /*horizontal bar*/
+        @apply bg-neutral-300 h-[1px] w-full my-12;
+        content: '';
+    }
+    
+
+
+
+    /* obra card */
     .bento-figure{
         @apply hover:scale-110 transition-all duration-500 ease-in-out relative max-h-[300px] overflow-hidden;
     }
