@@ -44,16 +44,6 @@ export default function PageHeader( {actualPage}:{actualPage?: string}) {
 
 
             </header>
-            <div
-                className="fixed h-36 full w-full top-0 left-0 z-10 bg-gray-200"
-                // add linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, rgba(0, 0, 0, 0) 100%) and also a blur in the gradient
-                style={
-                    {
-                        background: "linear-gradient(180deg, rgba(229, 231, 235, 1) 20%, rgba(0, 0, 0, 0) 100%)",
-                        backdropFilter: "blur(40px)",
-                        mask: "linear-gradient(180deg, rgba(255, 255, 255, 1) 70%, rgba(0, 0, 0, 0) 100%)"
-                    }}
-            ></div>
             <div className="h-36 w-2 "></div>
         </>
     )
