@@ -11,7 +11,7 @@ export default function Derechos() {
     return (
         <main className="terminos-main">
             <Link href="/" className="fixed top-8 left-0 pl-8 pr-4 py-2 bg-white rounded-e-3xl shadow-md ">
-            <ChevronLeftIcon className="h-12 hover:animate-horizontal-bounce transition-transform ease-in-out duration-300 "/>
+            <ChevronLeftIcon className="md:h-12 h-8 hover:animate-horizontal-bounce transition-transform ease-in-out duration-300 "/>
             </Link>
             <h1>Licencia de Uso</h1>
             <article className="terminos-legales">

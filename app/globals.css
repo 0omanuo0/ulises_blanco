@@ -146,7 +146,7 @@ body {
         @apply space-y-4 mb-12 flex flex-col mt-12 mx-2 md:mx-20;
     }
     .contact-info h2{
-        @apply text-center mx-auto text-2xl font-light border-b-2 border-gray-300 w-fit px-2;
+        @apply text-center mx-auto 2xl:ml-0 text-2xl font-light border-b-2 border-gray-300 w-fit px-2;
     }
     .contact-info a{
         @apply underline;
