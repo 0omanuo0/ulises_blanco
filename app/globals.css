@@ -121,6 +121,11 @@ body {
         @apply text-pretty;
         @apply ml-8;
     }
+    .terminos-legales p:nth-child(3){
+        @apply text-pretty;
+        @apply ml-8;
+        @apply mt-2
+    }
     .terminos-legales h2{
         @apply text-2xl font-light border-b-2 border-gray-300 w-fit px-2 mt-8 mb-4;
     }
@@ -129,6 +134,9 @@ body {
     }
     .terminos-legales h3{
         @apply text-xl  w-fit px-2 mt-4;
+    }
+    .terminos-legales a{
+        @apply underline;
     }
     
     .contact-info{
@@ -146,6 +154,9 @@ body {
      .contact-info #mails > p{
         @apply list-item;
     } 
+    .license a{
+        @apply underline;
+    }
 
     .h-bar{
         /*horizontal bar*/
