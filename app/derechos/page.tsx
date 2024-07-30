@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Derechos() {
 
-    const license = ` <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://ulisesblanco.com">Web Ulises Blanco </a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-flex;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p> `;
+    // const license = ` <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://ulisesblanco.com">Web Ulises Blanco </a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-flex;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p> `;
 
 
 
@@ -20,7 +20,9 @@ export default function Derechos() {
                     Las obras presentadas en este sitio web (<a target="_blank" href="https://ulisesblanco.com">ulisesblanco.com</a>) pertenecen exclusivamente a los legitimos herederos de Ulises Blanco. Todos los derechos están reservados.
                 </p>
                 <h2>2. Permiso de Uso</h2>
-                <p>Este trabajo está licenciado bajo una <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">Licencia Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional (CC BY-NC-ND 4.0)</a>. Bajo esta licencia, usted es libre de compartir, copiar y redistribuir el material en cualquier medio o formato, bajo las siguientes condiciones:</p>
+                <p>
+                    Las obras pueden ser utilizadas libremente bajo las siguientes condiciones:
+                </p>
                 <ul>
                     <li>
                         <h3>2.1 Atribución</h3>
@@ -113,8 +115,8 @@ export default function Derechos() {
                 </p>
             </article>
             {/* insert license text */}
-            <div className="license" dangerouslySetInnerHTML={{ __html: license }}></div>
-            
+            {/* <div className="license" dangerouslySetInnerHTML={{ __html: license }}></div>
+             */}
             <p>Última actualización: 30 de julio de 2024</p>
         </main>
     )
