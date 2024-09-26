@@ -16,7 +16,7 @@ export default function SectionMain() {
                 alt={" imagen principal"}
                 width={2000}
                 height={1000}
-                priority
+                priority={true}
                 className="w-screen h-screen object-cover aspect-video"
             ></Image>
             <div className="landing-content">
