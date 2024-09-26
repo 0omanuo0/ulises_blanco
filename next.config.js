@@ -2,7 +2,12 @@
 
 module.exports = {
     images: {
-        domains: ['storage.manu365.dev'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'storage.manu365.dev',
+            }
+        ]
     },
 };
 
