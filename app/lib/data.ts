@@ -19,12 +19,30 @@ export async function fetchCuadro(id:number) {
     return cuadro;
 }
 
-export async function fetchCuadros() {
-    const cuadros = await sql<Cuadro>`
-        SELECT * FROM catalogo;
-    `;
-    
+export async function fetchCuadros(amount?:number, start?:number) {
 
+    if (amount) {
+        const startParam = start || 0;
+        const cuadros = await sql<Cuadro>`
+            SELECT * FROM catalogo ORDER BY id LIMIT ${amount} OFFSET ${startParam};
+        `;
+        return cuadros;
+    }
+
+    const cuadros = await sql<Cuadro>`SELECT * FROM catalogo;`;
+    return cuadros;
+}
+
+export async function fetchCuadrosByYear(year:number, amount?:number, start?:number) {
+    if (amount) {
+        const startParam = start || 0;
+        const cuadros = await sql<Cuadro>`
+            SELECT * FROM catalogo WHERE año = ${year} ORDER BY id LIMIT ${amount} OFFSET ${startParam};
+        `;
+        return cuadros;
+    }
+
+    const cuadros = await sql<Cuadro>`SELECT * FROM catalogo WHERE año = ${year};`;
     return cuadros;
 }
 
