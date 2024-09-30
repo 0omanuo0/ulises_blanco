@@ -18,22 +18,7 @@ export default async function Obras() {
     // const query = useSearchParams();
     // const year = query.get("year");
 
-    const cuadros = (await fetchCuadros()).rows;
-
-    // iterate over from cuadros.length to 54 and append Cuadro objects to the array everything undefined but imgpath `https://storage.manu365.dev/art/cuadro-${i + 1}.webp
-    const cuadrosLength = cuadros.length;
-    for (let i = cuadrosLength; i < 54; i++) {
-        cuadros.push({
-            id: i + 1,
-            titulo: "",
-            coleccion: "",
-            año: NaN,
-            dimensiones: "100x100",
-            descripcion: "",
-            material: "",
-            imgpath: `https://storage.manu365.dev/art/cuadro-${i + 1}.webp`
-        })
-    }
+    const cuadros = (await fetchCuadros(10)).rows;
 
     // get años
     const años = cuadros.map(cuadro => cuadro.año);
