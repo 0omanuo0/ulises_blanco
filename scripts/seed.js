@@ -1,13 +1,11 @@
 const { db } = require('@vercel/postgres');
-const {
-    cuadros,
-} = require('../app/lib/placeholder-data.js');
-const cronology = require('../app/lib/cronology.json');
+const { cuadros } = require('./placeholder-data.js');
+const cronology = require('./cronology.json');
 const bcrypt = require('bcrypt');
 
 
 
-async function seedCatalogo(client ) {
+async function seedCatalogo(client) {
     try {
         // check if the table exists and remove it if it does
 
@@ -39,7 +37,7 @@ async function seedCatalogo(client ) {
         console.log(`Created "catalogo" table`);
 
         // Insert data into the "revenue" table
-        const insertedCuadros = await Promise.all(
+        let insertedCuadros = await Promise.all(
             cuadros.map(
                 (cuadro) => client.sql`
             INSERT INTO catalogo (titulo, coleccion, año, dimensiones, descripcion, material, imgPath)
@@ -48,6 +46,18 @@ async function seedCatalogo(client ) {
             `,
             ),
         );
+
+        // seed the next 54-cuadros as default titulo: "", coleccion: "", año: NaN, dimensiones: "100x100", descripcion: "", material: "", imgpath: `https://storage.manu365.dev/art/cuadro-${i + 1}.webp`
+
+        for (let i = cuadros.length; i < 54; i++) {
+            insertedCuadros.push(
+                client.sql`
+            INSERT INTO catalogo (titulo, coleccion, año, dimensiones, descripcion, material, imgPath)
+                VALUES ('', '', 0, '100x100', '', '', ${`https://storage.manu365.dev/art/cuadro-${i + 1}.webp`})
+                ON CONFLICT DO NOTHING;
+            `,
+            );
+        }
 
         console.log(`Seeded ${insertedCuadros.length} cuadros`);
 
@@ -112,8 +122,7 @@ async function seedCronology(client) {
 }
 
 async function main() {
-    const client
-     = await db.connect();
+    const client = await db.connect();
 
     await seedCatalogo(client);
     await seedCronology(client);
