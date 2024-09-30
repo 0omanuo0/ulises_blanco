@@ -172,7 +172,7 @@ body {
 
     /* obra card */
     .bento-figure{
-        @apply hover:scale-110 transition-all duration-500 ease-in-out relative max-h-[300px] overflow-hidden;
+        @apply hover:scale-105 transition-all duration-500 ease-in-out relative max-h-[300px] overflow-hidden;
     }
     .bento-figure figcaption{
         @apply absolute hidden md:block inset-0 bg-black opacity-40 hover:opacity-0 transition-opacity duration-300 rounded-xl;
