@@ -94,7 +94,7 @@ export default function Bento({ images, className }: { images: Cuadro[], classNa
 
 
 function Cuadro({ image, i }: { image: Cuadro, i: number }) {
-    const min_height = 300; // in px
+    const min_height = 240; // in px
 
 
     let [width, height] = image.dimensiones.split("x").map(dim => parseInt(dim, 10)); // is in cm

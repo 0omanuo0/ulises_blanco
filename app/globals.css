@@ -73,19 +73,19 @@ body {
 
     /* obras page */
     .header-nav{
-        @apply fixed p-4 md:p-10 top-0 left-0 w-full z-50;
+        @apply fixed p-4 md:p-6 top-0 left-0 w-full z-50;
     }
     .header-nav #header-container{
-        @apply bg-white w-full h-24 flex items-center justify-between px-6 md:px-20 rounded-xl shadow-2xl;
+        @apply bg-white w-full h-20 flex items-center justify-between px-6 md:px-20 rounded-xl shadow-2xl;
     }
     .header-title{
-        @apply text-black border-b-2 pb-1 text-lg md:text-xl border-black tracking-widest;
+        @apply text-black border-b-2 pb-1 text-base md:text-lg border-black tracking-widest;
     }
     .header-nav nav{
-        @apply hidden space-x-10 lg:flex items-center;
+        @apply hidden space-x-8 lg:flex items-center;
     }
     .header-nav-link {
-        @apply border-none w-fit border-2 h-fit font-light text-lg tracking-widest hover:animate-pulse text-black;
+        @apply border-none w-fit border-2 h-fit font-light text-base tracking-widest hover:animate-pulse text-black;
     }
     .header-nav #navbar-dropdown{
         @apply lg:hidden items-center h-fit;

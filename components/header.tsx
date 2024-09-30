@@ -24,7 +24,7 @@ export default function PageHeader( {actualPage}:{actualPage?: string}) {
                         <button className=" header-nav-link">
                             <Link href={"/"}>INICIO</Link>
                         </button>
-                        <div className="border-r-2 border-black h-8"></div>
+                        <div className="border-r-2 border-black h-6"></div>
                         <button className={`header-nav-link ${actualPage === pages.OBRAS ? " font-normal" : ""}`}>
                             <Link href={"/obras"}>OBRAS</Link>
                         </button>
@@ -44,7 +44,7 @@ export default function PageHeader( {actualPage}:{actualPage?: string}) {
 
 
             </header>
-            <div className="h-36 w-2 "></div>
+            <div className="h-32 w-2 "></div>
         </>
     )
 }
