@@ -1,43 +1,50 @@
-"use client";
-
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import ButtonScrollDown from "./buttonScolldown";
 
 export default function SectionMain() {
     return (
-        <section>
+        <section
+            style={{
+                backgroundImage: "url('/static/img/main2_ulowres.webp')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                width: "100vw",
+                height: "100vh",
+            }}
+        >
             <Head>
-                <link rel="preload" href={"/static/img/main2.webp"} as="image" />
+                <link rel="preload" href="/static/img/main2_ulowres.webp" as="image" />
             </Head>
+            
+            {/* Imagen de alta resolución para la vista completa */}
             <Image
-                src={"/static/img/main2.webp"}
-                alt={" imagen principal"}
+                src="/static/img/main2.webp"
+                alt="Imagen principal"
                 width={2000}
                 height={1000}
-                priority={true}
+                priority
                 className="w-screen h-screen object-cover aspect-video"
-            ></Image>
+                placeholder="blur"
+                blurDataURL="/static/img/main2_ulowres.webp"
+            />
+
+            {/* Contenido estático */}
             <div className="landing-content">
                 <div className="landing-content-left">
                     <h1>Ulises Blanco</h1>
                 </div>
                 <nav className="nav-main">
                     <div className="mx-auto space-x-6">
-                        <Link href={"/"}>BIO</Link>
-                        <Link href={"/obras"}>OBRAS</Link>
+                        <Link href="/">BIO</Link>
+                        <Link href="/obras">OBRAS</Link>
                     </div>
                 </nav>
             </div>
-            <div className="scroll-down">
-                <button onClick={() => {
-                    // scroll to "about" section
-                    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
-                }} >
-                    <ChevronDownIcon />
-                </button>
-            </div>
+
+            {/* Botón para desplazarse a la sección "about" */}
+            <ButtonScrollDown />
         </section>
-    )
+    );
 }
