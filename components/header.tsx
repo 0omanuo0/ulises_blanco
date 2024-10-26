@@ -6,21 +6,21 @@ import { useState } from "react";
 import NavDropdown from "@/components/navDropdown";
 
 
-enum pages{
+enum pages {
     INICIO = "inicio",
     OBRAS = "obras",
     BIOGRAFIA = "biografia"
 }
 
 
-export default function PageHeader( {actualPage}:{actualPage?: string}) {
+export default function PageHeader({ actualPage }: { actualPage?: string }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <>
             <header className="header-nav">
                 <div id="header-container">
                     <h1 className="header-title">ULISES BLANCO</h1>
-                    <nav>
+                    <nav id="nav-large">
                         <button className=" header-nav-link">
                             <Link href={"/"}>INICIO</Link>
                         </button>
@@ -33,17 +33,16 @@ export default function PageHeader( {actualPage}:{actualPage?: string}) {
                         </button>
                     </nav>
                     <div id="navbar-dropdown" >
-                        <button  onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
                             <Bars3Icon className="h-8 w-8" />
                         </button>
                     </div>
                 </div>
-                {
-                    isMenuOpen ? <NavDropdown isOpen={isMenuOpen} /> : <></>
-                }
 
 
             </header>
+            <NavDropdown isOpen={isMenuOpen} />
+
             <div className="h-32 w-2 "></div>
         </>
     )

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 
 
-export default function NavDropdown({isOpen}:{isOpen:boolean}) {
+export default function NavDropdown({ isOpen }: { isOpen: boolean }) {
 
     useEffect(() => {
         if (isOpen) {
@@ -14,28 +14,34 @@ export default function NavDropdown({isOpen}:{isOpen:boolean}) {
         } else {
             document.getElementById("nav-dropdown")?.classList.remove("animate-fade-out-down");
         }
-    },[isOpen]);
+    }, [isOpen]);
+
     return (
-        <nav id="nav-dropdown" className=" animate-duration-300 text-right ml-auto bg-white rounded-xl shadow-xl w-fit p-6 mt-2">
-            <ul className=" text-lg font-normal tracking-widest list-none space-y-2 text-center">
+        <nav
+            id="nav-dropdown"
+            className={!isOpen ? "hidden" : "" + " navbar-dropdown-list animate-duration-200 "}
+        >
+            <ul>
                 <li>
-                    <button className="w-fit hover:animate-pulse text-black">
+                    <button>
                         <Link href={"/"}>INICIO</Link>
                     </button>
                 </li>
                 <span className="border-b-2 block"></span>
                 <li>
-                    <button className=" w-fit hover:animate-pulse text-black">
+                    <button>
                         <Link href={"/"}>OBRAS</Link>
                     </button>
                 </li>
                 <span className="border-b-2 block"></span>
                 <li>
-                    <button className=" w-fit hover:animate-pulse text-black">
+                    <button>
                         <Link href={"/"}>BIOGRAFIA</Link>
                     </button>
                 </li>
             </ul>
+            <div className="hidden animate-fade-out-down"></div>
         </nav>
+
     )
 }
