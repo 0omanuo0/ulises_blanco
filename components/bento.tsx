@@ -33,7 +33,7 @@ export default function Bento({ images, className }: { images: Cuadro[], classNa
 
             if (year) {
                 setSearchParams({ typeSearch: SearchType.YEAR, valueSearch: year });
-                
+
                 fetch(`/api/cuadros?year=${year}&n=${count}`)
                     .then(res => res.json())
                     .then(data => {
@@ -42,14 +42,14 @@ export default function Bento({ images, className }: { images: Cuadro[], classNa
                     })
                     .catch(err => console.error(err));
             }
-            else{
+            else {
                 fetch(`/api/cuadros?n=${count}`)
-                .then(res => res.json())
-                .then(data => {
-                    setListImages(data);
-                    localStorage.setItem("countCuadro", count.toString());
-                })
-                .catch(err => console.error(err));
+                    .then(res => res.json())
+                    .then(data => {
+                        setListImages(data);
+                        localStorage.setItem("countCuadro", count.toString());
+                    })
+                    .catch(err => console.error(err));
             }
         }, 200);
     };
@@ -60,13 +60,25 @@ export default function Bento({ images, className }: { images: Cuadro[], classNa
             setCount(parseInt(countStorage));
         }
 
-        document.getElementById("filter-year")?.addEventListener("click", () => searchCheck());
+        const handleDocumentClick = (event:any) => {
+            const filterYear = document.getElementById("filter-year");
+            if (filterYear && filterYear.contains(event.target)) {
+                searchCheck();
+            }
+        };
+    
+        document.addEventListener("click", handleDocumentClick);
 
         searchCheck();
+
+        // Cleanup al desmontar el componente
+        return () => {
+            document.removeEventListener("click", handleDocumentClick);
+        };
     }, []);
 
     useEffect(() => {
-        searchCheck();        
+        searchCheck();
     }, [count]);
 
     return (
