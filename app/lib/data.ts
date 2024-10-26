@@ -46,6 +46,15 @@ export async function fetchCuadrosByYear(year:number, amount?:number, start?:num
     return cuadros;
 }
 
+export async function getYears() {
+    // delete year 0 if exists
+    const years = await sql`
+        SELECT DISTINCT año FROM catalogo WHERE año != 0 ORDER BY año;
+    `;
+
+    return years.rows.map((row) => row.año);
+}
+
 export async function getEvents() {
     const data = await sql`
         SELECT * FROM cronology ORDER BY year DESC;

@@ -5,31 +5,35 @@ import { toggle } from "@nextui-org/react";
 
 import PageHeader from "@/components/header";
 import Bento from "@/components/bento";
-import { fetchCuadros } from "@/app/lib/data";
+import { fetchCuadros, fetchCuadrosByYear, getYears } from "@/app/lib/data";
 import SearchFilters from "@/components/searchBar";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import ScrollUpButton from "@/components/scrollUpButton";
 
 
-export default async function Obras() {
+export default async function Obras({ searchParams }: { searchParams: { [key: string]: any | undefined } }): Promise<ReactElement> {
 
-    // get the query params "year" from the url
-    // const query = useSearchParams();
-    // const year = query.get("year");
+    const n = searchParams.n || undefined; // amount of cuadros to fetch
+    const p = searchParams.p || undefined; // padding 
+    const year = searchParams.year || undefined; // year to filter
 
-    const cuadros = (await fetchCuadros(10)).rows;
-
-    // get años
-    const años = cuadros.map(cuadro => cuadro.año);
+    let cuadros = [];
     
+    if(year){
+        console.log(year);
+        cuadros = (await fetchCuadrosByYear(parseInt(year), n ? parseInt(n) : undefined, p ? parseInt(p) : undefined)).rows;
+    }
+    else{
+        cuadros = (await fetchCuadros(n ? parseInt(n) : undefined, p ? parseInt(p) : undefined)).rows;
+    }
 
     return (
         <div id="main-page" >
-            <PageHeader actualPage="obras"/>
+            <PageHeader actualPage="obras" />
             <main >
                 {/* añadir destacados */}
-                <SearchFilters years={años}></SearchFilters>
+                <SearchFilters years={await getYears()}></SearchFilters>
                 <Bento className="mt-4 md:mt-14 px-10 2xl:px-28" images={cuadros}></Bento>
             </main>
             <ScrollUpButton target="main-page" />
