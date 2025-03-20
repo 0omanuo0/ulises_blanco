@@ -196,4 +196,8 @@ body {
     .bento-figure img{
         @apply object-cover w-full h-full rounded-xl;
     }
+
+    .set-top{
+        @apply fixed left-0 top-0 z-50 w-full bg-neutral-100/40 backdrop-blur-lg text-center items-center justify-center py-4;
+    }
 }

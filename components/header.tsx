@@ -18,7 +18,7 @@ export default function PageHeader({ actualPage }: { actualPage?: string }) {
     return (
         <>
             <header className="header-nav">
-                <div id="header-container">
+                <div id="header-container" className="hidden md:block">
                     <h1 className="header-title">ULISES BLANCO</h1>
                     <nav id="nav-large">
                         <button className=" header-nav-link">
@@ -32,7 +32,7 @@ export default function PageHeader({ actualPage }: { actualPage?: string }) {
                             <Link href={"/biografia"}>BIOGRAFIA</Link>
                         </button>
                     </nav>
-                    <div id="navbar-dropdown" >
+                    <div id="navbar-dropdown" className="md:hidden">
                         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
                             <Bars3Icon className="h-8 w-8" />
                         </button>
